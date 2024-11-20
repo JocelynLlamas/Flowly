@@ -1,0 +1,8 @@
+<div class="habit-tracker">
+    <h3>Seguimiento de Hábitos</h3>
+    <ul>
+        <li *ngFor="let habit of habits">
+            <input type="checkbox" [(ngModel)]="habit.done" /> {{ habit.name }}
+        </li>
+    </ul>
+</div>

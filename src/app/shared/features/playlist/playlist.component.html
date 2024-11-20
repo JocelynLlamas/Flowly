@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <h3>Playlists</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <ul class="list-group">
+                <!-- Lista de playlists -->
+                <li class="list-group-item" *ngFor="let playlist of playlists" (click)="selectPlaylist(playlist)">
+                    <img [src]="playlist.images[0]?.url" alt="Playlist Image" class="img-thumbnail" width="50">
+                    {{ playlist.name }}
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-8" *ngIf="selectedPlaylist">
+            <h4>{{ selectedPlaylist.name }}</h4>
+            <ul class="list-group">
+                <!-- Lista de canciones -->
+                <li class="list-group-item d-flex justify-content-between align-items-center"
+                    *ngFor="let track of tracks">
+                    <div>
+                        <strong>{{ track.track.name }}</strong>
+                        <br />
+                        <small>{{ track.track.artists[0]?.name }}</small>
+                    </div>
+                    <button class="btn btn-success btn-sm" (click)="playSong(track.track.uri)">
+                        Play
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

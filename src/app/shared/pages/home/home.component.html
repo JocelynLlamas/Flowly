@@ -1,5 +1,20 @@
-<div class="container text-center mt-5">
-    <h1>¡Bienvenido a Lofi Planner!</h1>
-    <p>Conecta tu cuenta de Spotify para comenzar.</p>
-    <a [href]="spotifyService.getAuthUrl()" class="btn btn-primary btn-lg">Conectar con Spotify</a>
+<div class="container-fluid">
+    <video [loop]="true" [muted]="true" [autoplay]="true" [playsInline]="true">
+        <source src="/video/bg.mp4" type="video/mp4" />
+        No sopported
+    </video>
+    <div class="overlay"></div>
+    <div class="container text-center h-100 d-flex align-items-center justify-content-center">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>¡Bienvenido a Flowly!</h1>
+            </div>
+            <div class="col-md-12">
+                <p>Conecta tu cuenta de Spotify para comenzar.</p>
+            </div>
+            <div class="col-md-12">
+                <a [href]="spotifyService.getAuthUrl()" class="btn btn-lg">Conectar con Spotify</a>
+            </div>
+        </div>
+    </div>
 </div>

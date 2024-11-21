@@ -1,0 +1,10 @@
+.btn-success {
+    background-color: #3bced9 !important;
+    border: none !important;
+}
+
+.btn-danger{
+    background-color: #8be8ef !important;
+    border: none !important;
+    color: #030909 !important;
+}

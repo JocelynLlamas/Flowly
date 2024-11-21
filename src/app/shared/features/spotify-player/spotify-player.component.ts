@@ -16,13 +16,11 @@ export class SpotifyPlayerComponent implements OnInit, OnDestroy {
   constructor(private spotifyService: SpotifyService) { }
 
   ngOnInit(): void {
-    this.fetchCurrentTrack(); // Llamada inicial
-    // Configurar un intervalo para actualizar el estado cada 3 segundos
+    this.fetchCurrentTrack(); // First call
     this.intervalId = setInterval(() => this.fetchCurrentTrack(), 3000);
   }
 
   ngOnDestroy(): void {
-    // Limpia el intervalo cuando el componente se destruye
     if (this.intervalId) {
       clearInterval(this.intervalId);
     }
@@ -30,7 +28,7 @@ export class SpotifyPlayerComponent implements OnInit, OnDestroy {
 
   fetchCurrentTrack(): void {
     this.spotifyService.getCurrentTrack().then((track) => {
-      this.currentTrack = track?.item; // Actualiza la canción actual
+      this.currentTrack = track?.item; // Update current song
     }).catch((error) => {
       console.error('Error al obtener la canción actual:', error);
     });
@@ -50,7 +48,7 @@ export class SpotifyPlayerComponent implements OnInit, OnDestroy {
 
   next(): void {
     this.spotifyService.nextTrack().then(() => {
-      this.fetchCurrentTrack(); // Actualiza la canción actual después de avanzar
+      this.fetchCurrentTrack();
     }).catch((error) => {
       console.error('Error al pasar a la siguiente canción:', error);
     });
@@ -58,7 +56,7 @@ export class SpotifyPlayerComponent implements OnInit, OnDestroy {
   
   previous(): void {
     this.spotifyService.previousTrack().then(() => {
-      this.fetchCurrentTrack(); // Actualiza la canción actual después de retroceder
+      this.fetchCurrentTrack();
     }).catch((error) => {
       console.error('Error al regresar a la canción anterior:', error);
     });
